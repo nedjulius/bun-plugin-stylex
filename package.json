@@ -1,0 +1,24 @@
+{
+  "name": "bun-plugin-stylex",
+  "module": "src/index.ts",
+  "author": "nedjulius",
+  "repository": "nedjulius/bun-plugin-stylex",
+  "version": "1.0.0",
+  "type": "module",
+  "devDependencies": {
+    "@types/babel__core": "^7.20.5",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.24.1",
+    "@babel/plugin-syntax-flow": "^7.24.1",
+    "@babel/plugin-syntax-jsx": "^7.24.1",
+    "@babel/plugin-syntax-typescript": "^7.24.1",
+    "@stylexjs/babel-plugin": "^0.5.1",
+    "@stylexjs/shared": "^0.5.1",
+    "babel-plugin-syntax-hermes-parser": "^0.20.1"
+  }
+}

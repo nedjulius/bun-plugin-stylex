@@ -1,0 +1,26 @@
+// Bun Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`bun-plugin-stylex base 1`] = `
+{
+  "logs": [],
+  "outputs": [
+    BuildArtifact (entry-point) {
+      path: "./index.js",
+      loader: "ts",
+      kind: "entry-point",
+      hash: "7700c8a36a613cb7",
+      Blob (124 bytes) {
+        type: "text/javascript;charset=utf-8"
+      },
+      sourcemap: null
+    },
+  ],
+  "success": true,
+}
+`;
+
+exports[`bun-plugin-stylex base 2`] = `
+"@keyframes xekv6nw-B{0%{opacity:0;}100%{opacity:1;}}
+.x1ojj28o:not(#\#){animation:xekv6nw-B}
+.x7z7khe:not(#\#){padding:10px}"
+`;
