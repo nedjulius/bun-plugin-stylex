@@ -1,6 +1,7 @@
 import stylex from "@stylexjs/stylex";
 
-export const vars = stylex.defineVars({
-  backgroundColor: "aqua",
-  color: "pink",
+export const colors = stylex.defineVars({
+  background: "white",
+  textPrimary: "pink",
+  textSecondary: "green",
 });

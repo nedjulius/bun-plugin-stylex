@@ -3,9 +3,11 @@ import { describe, it, expect } from "bun:test";
 import createStylexPlugin from "../src";
 
 async function build() {
-  const [stylexPlugin, generateCSS] = createStylexPlugin();
+  const [stylexPlugin, generateCSS] = createStylexPlugin({
+    useCSSLayers: true,
+  });
 
-  const output = await Bun.build({
+  const res = await Bun.build({
     entrypoints: [path.resolve(__dirname, "fixtures/index.ts")],
     external: ["@stylexjs/stylex"],
     minify: false,
@@ -13,7 +15,7 @@ async function build() {
   });
   const css = await generateCSS();
 
-  return { output, css };
+  return { output: res.outputs[0] ?? undefined, css };
 }
 
 describe("bun-plugin-stylex", () => {

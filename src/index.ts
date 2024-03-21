@@ -59,6 +59,7 @@ export default function stylexPlugin({
         async (args: OnLoadArgs): Promise<OnLoadResult> => {
           const currFilePath = args.path;
           const inputCode = await readFile(currFilePath, 'utf8');
+          console.log(currFilePath, 'file path')
 
           if (
             !stylexImports.some((importName) => inputCode.includes(importName))
@@ -85,7 +86,7 @@ export default function stylexPlugin({
             ],
           });
 
-          const loader = getEsbuildLoader(currFilePath);
+          const loader = getLoader(currFilePath);
 
           if (transformResult === null) {
             console.warn('StyleX: transformAsync returned null');
@@ -115,7 +116,7 @@ export default function stylexPlugin({
   return [plugin, generateCSS];
 }
 
-function getEsbuildLoader(fileName: string) {
+function getLoader(fileName: string) {
   if (fileName.endsWith('.tsx')) {
     return 'tsx';
   }

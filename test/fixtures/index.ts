@@ -1,5 +1,5 @@
 import stylex from "@stylexjs/stylex";
-// import { vars } from "./vars.stylex";
+import { colors } from "./vars.stylex";
 
 const fadeIn = stylex.keyframes({
   "0%": {
@@ -12,12 +12,12 @@ const fadeIn = stylex.keyframes({
 
 const styles = stylex.create({
   foo: {
-    // backgroundColor: vars.backgroundColor,
-    // color: vars.color,
+    backgroundColor: colors.background,
+    color: colors.textPrimary,
     animation: fadeIn,
   },
   bar: {
-    padding: "10px",
+    color: colors.textSecondary,
   },
 });
 
