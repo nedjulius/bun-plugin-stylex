@@ -8,7 +8,10 @@
   "scripts": {
     "test": "bun test",
     "test:watch": "bun test --watch",
-    "format": "prettier --write '**/*.{ts,json}' --config .prettierrc.json --ignore-path .gitignore"
+    "lint": "eslint \"**/*.{ts,js}\"",
+    "lint:fix": "npm run lint --fix",
+    "format": "prettier --write '**/*.{ts,json}' --config .prettierrc.json --ignore-path .gitignore",
+    "format:check": "prettier --check '**/*.{ts,json}' --config .prettierrc.json --ignore-path .gitignore"
   },
   "devDependencies": {
     "@types/babel__core": "^7.20.5",
