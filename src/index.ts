@@ -1,13 +1,19 @@
-import type { BunPlugin, OnLoadArgs, OnLoadResult, PluginBuilder } from "bun";
+import type { BunPlugin, OnLoadArgs, OnLoadResult, PluginBuilder } from 'bun';
 import path from 'node:path';
 import { promises } from 'node:fs';
-import { transformAsync, type PluginItem } from '@babel/core';
-import stylexBabelPlugin from '@stylexjs/babel-plugin';
+import {
+  transformAsync,
+  type BabelFileMetadata,
+  type PluginItem,
+} from '@babel/core';
+import stylexBabelPlugin, {
+  type Options,
+  type Rule,
+} from '@stylexjs/babel-plugin';
 import flowSyntaxPlugin from '@babel/plugin-syntax-flow';
 import hermesParserPlugin from 'babel-plugin-syntax-hermes-parser';
 import typescriptSyntaxPlugin from '@babel/plugin-syntax-typescript';
 import jsxSyntaxPlugin from '@babel/plugin-syntax-jsx';
-import type { Options, Rule } from '@stylexjs/babel-plugin';
 
 const { readFile } = promises;
 
@@ -20,16 +26,19 @@ const IS_DEV_ENV =
 const STYLEX_PLUGIN_ONLOAD_FILTER = /\.(jsx|js|tsx|ts|mjs|cjs|mts|cts)$/;
 
 export type PluginOptions = Partial<Options> & {
-  stylexImports?: string[],
+  stylexImports?: string[];
   babelConfig?: {
-    plugins?: PluginItem[],
-    presets?: PluginItem[],
-  },
-  useCSSLayers?: boolean,
+    plugins?: PluginItem[];
+    presets?: PluginItem[];
+  };
+  useCSSLayers?: boolean;
 };
+
+type BabelFileMetadataWithStylex = BabelFileMetadata & { stylex: Rule };
 
 export default function stylexPlugin({
   dev = IS_DEV_ENV,
+  // eslint-disable-next-line
   unstable_moduleResolution = { type: 'commonJS', rootDir: process.cwd() },
   stylexImports = ['@stylexjs/stylex'],
   babelConfig: { plugins = [], presets = [] } = {},
@@ -45,10 +54,7 @@ export default function stylexPlugin({
       return;
     }
 
-    return stylexBabelPlugin.processStylexRules(
-      rules,
-      useCSSLayers,
-    );
+    return stylexBabelPlugin.processStylexRules(rules, useCSSLayers);
   }
 
   const plugin = {
@@ -59,7 +65,7 @@ export default function stylexPlugin({
         async (args: OnLoadArgs): Promise<OnLoadResult> => {
           const currFilePath = args.path;
           const inputCode = await readFile(currFilePath, 'utf8');
-          console.log(currFilePath, 'file path')
+          console.log(currFilePath, 'file path');
 
           if (
             !stylexImports.some((importName) => inputCode.includes(importName))
@@ -81,6 +87,7 @@ export default function stylexPlugin({
                 treeshakeCompensation: true,
                 ...options,
                 dev,
+                // eslint-disable-next-line
                 unstable_moduleResolution,
               }),
             ],
@@ -100,8 +107,14 @@ export default function stylexPlugin({
             return { contents: inputCode, loader };
           }
 
-          if (!dev && metadata && (metadata as any).stylex) {
-            stylexRules[args.path] = (metadata as any).stylex;
+          if (
+            !dev &&
+            metadata &&
+            (metadata as BabelFileMetadataWithStylex).stylex
+          ) {
+            stylexRules[args.path] = (
+              metadata as BabelFileMetadataWithStylex
+            ).stylex;
           }
 
           return {

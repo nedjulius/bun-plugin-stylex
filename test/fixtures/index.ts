@@ -1,11 +1,11 @@
-import stylex from "@stylexjs/stylex";
-import { colors } from "./vars.stylex";
+import stylex from '@stylexjs/stylex';
+import { colors } from './vars.stylex';
 
 const fadeIn = stylex.keyframes({
-  "0%": {
+  '0%': {
     opacity: 0,
   },
-  "100%": {
+  '100%': {
     opacity: 1,
   },
 });
