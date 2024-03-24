@@ -8,7 +8,7 @@ async function build() {
   });
 
   const res = await Bun.build({
-    entrypoints: [path.resolve(__dirname, 'fixtures/index.ts')],
+    entrypoints: [path.resolve(__dirname, '__fixtures__/index.ts')],
     external: ['@stylexjs/stylex'],
     minify: false,
     plugins: [stylexPlugin],
