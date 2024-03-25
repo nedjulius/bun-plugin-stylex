@@ -11,6 +11,7 @@ bun add -d bun-plugin-stylex
 Due to the current limitations of `Bun` the consumer must generate and write the `CSS` output manually.
 
 ```ts
+import path from 'node:path';
 import createStylexPlugin from 'bun-plugin-stylex';
 
 const [stylexPlugin, generateCSS] = createStylexPlugin();
