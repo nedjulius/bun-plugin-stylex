@@ -5,10 +5,6 @@ import createStylexPlugin from '../src';
 async function build(options: object = {}) {
   const [stylexPlugin, generateCSS] = createStylexPlugin({
     useCSSLayers: true,
-    // eslint-disable-next-line
-    unstable_moduleResolution: {
-      type: 'haste',
-    },
     ...options,
   });
 

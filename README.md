@@ -30,8 +30,8 @@ if (generatedCSS) {
 
 ## Options
 
-### `stylexImports?: string[]`
+#### `stylexImports?: string[]`
 
-### `babelConfig?: { plugins?: PluginItem[], presets?: PluginItem[] }`
+#### `babelConfig?: { plugins?: PluginItem[], presets?: PluginItem[] }`
 
-### `useCSSLayers?: boolean`
+#### `useCSSLayers?: boolean`
