@@ -25,12 +25,6 @@
     "noPropertyAccessFromIndexSignature": false,
 
     // Types
-    "types": ["./types.d.ts"],
-
-    // Emit
-    "declaration": true,
-    "outDir": "dist"
-  },
-  "include": ["src"],
-  "exclude": ["node_modules", "test", "dist"]
+    "types": ["./types.d.ts"]
+  }
 }
