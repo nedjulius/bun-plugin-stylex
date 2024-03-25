@@ -8,7 +8,7 @@ bun add -d bun-plugin-stylex
 
 ## Usage
 
-Due to current limitations of `Bun` the consumer must generate and write the `CSS` output manually.
+Due to the current limitations of `Bun` the consumer must generate and write the `CSS` output manually.
 
 ```ts
 import createStylexPlugin from 'bun-plugin-stylex';
