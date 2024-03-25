@@ -36,7 +36,7 @@ export type PluginOptions = Partial<Options> & {
 
 type BabelFileMetadataWithStylex = BabelFileMetadata & { stylex: Rule };
 
-export default function stylexPlugin({
+export default function createStylexPlugin({
   dev = IS_DEV_ENV,
   // eslint-disable-next-line
   unstable_moduleResolution = { type: 'commonJS', rootDir: process.cwd() },

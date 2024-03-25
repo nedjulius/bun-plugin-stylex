@@ -1,15 +1,37 @@
 # bun-plugin-stylex
 
-To install dependencies:
+## Installation
 
-```bash
-bun install
+```
+bun add -d bun-plugin-stylex
 ```
 
-To run:
+## Usage
 
-```bash
-bun run index.ts
+Due to current limitations of `Bun` the consumer must generate and write the `CSS` output manually.
+
+```ts
+import createStylexPlugin from 'bun-plugin-stylex';
+
+const [stylexPlugin, generateCSS] = createStylexPlugin();
+
+await Bun.build({
+  entrypoints: [path.resolve(__dirname, './src/index.ts')],
+  plugins: [stylexPlugin],
+  outdir: 'dist',
+});
+
+const generatedCSS = await generateCSS();
+
+if (generatedCSS) {
+  await Bun.write(path.resolve(__dirname, 'dist/styles.css'), generatedCSS);
+}
 ```
 
-This project was created using `bun init` in bun v1.0.33. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+## Options
+
+### `stylexImports?: string[]`
+
+### `babelConfig?: { plugins?: PluginItem[], presets?: PluginItem[] }`
+
+### `useCSSLayers?: boolean`
