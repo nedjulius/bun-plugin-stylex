@@ -48,7 +48,9 @@ export default function stylexPlugin({
   const stylexRules: { [key: string]: Rule } = {};
 
   async function generateCSS() {
-    const rules: Array<Rule> = Object.values(stylexRules).flat();
+    const rules: Array<Rule> = Object.values(
+      stylexRules,
+    ).flat() as unknown as Rule[];
 
     if (rules.length === 0 || dev) {
       return;
@@ -65,7 +67,6 @@ export default function stylexPlugin({
         async (args: OnLoadArgs): Promise<OnLoadResult> => {
           const currFilePath = args.path;
           const inputCode = await readFile(currFilePath, 'utf8');
-          console.log(currFilePath, 'file path');
 
           if (
             !stylexImports.some((importName) => inputCode.includes(importName))
