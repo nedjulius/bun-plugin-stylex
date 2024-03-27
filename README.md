@@ -15,8 +15,8 @@ import path from 'node:path';
 import createStylexPlugin from 'bun-plugin-stylex';
 
 const [stylexPlugin, generateCSS] = createStylexPlugin({
-    // plugin options
-    dev: false,
+  // plugin options
+  dev: false,
 });
 
 await Bun.build({
