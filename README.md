@@ -14,7 +14,10 @@ Due to the current limitations of `Bun` the consumer must generate and write the
 import path from 'node:path';
 import createStylexPlugin from 'bun-plugin-stylex';
 
-const [stylexPlugin, generateCSS] = createStylexPlugin();
+const [stylexPlugin, generateCSS] = createStylexPlugin({
+    // plugin options
+    dev: false,
+});
 
 await Bun.build({
   entrypoints: [path.resolve(__dirname, './src/index.ts')],
