@@ -1,3 +1,5 @@
+> :warning: **IN DEVELOPMENT:** It is not recommended to use this plugin in `PROD` yet as it may have some critical issues
+
 # bun-plugin-stylex
 
 ## Installation
