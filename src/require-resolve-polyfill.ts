@@ -4,7 +4,6 @@ function requireResolvePolyfill(
   request: string,
   options?: { paths?: string[] },
 ) {
-  console.log('require resolve polyfill called?');
   if (options?.paths) {
     return Bun.resolveSync(request, options.paths[0]);
   }
