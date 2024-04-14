@@ -1,6 +1,6 @@
 {
   "name": "bun-plugin-stylex",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "nedjulius <hi@nedjulius.xyz>",
   "repository": "nedjulius/bun-plugin-stylex",
   "license": "MIT",
