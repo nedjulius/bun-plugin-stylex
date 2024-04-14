@@ -19,8 +19,6 @@ import createStylexPlugin from 'bun-plugin-stylex';
 const [stylexPlugin, generateCSS] = createStylexPlugin({
   // plugin options
   dev: false,
-  // right now only 'haste' resolution works
-  unstable_moduleResolution: { type: 'haste' },
 });
 
 await Bun.build({
