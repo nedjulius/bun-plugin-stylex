@@ -1,5 +1,6 @@
 import stylex from '@stylexjs/stylex';
 import { colors } from './vars.stylex';
+import otherStyles from './other';
 
 const fadeIn = stylex.keyframes({
   '0%': {
@@ -22,5 +23,5 @@ const styles = stylex.create({
 });
 
 export default function App() {
-  return stylex.props(styles.foo, styles.bar);
+  return stylex.props(otherStyles.other, styles.foo, styles.bar);
 }
