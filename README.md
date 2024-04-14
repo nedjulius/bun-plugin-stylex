@@ -1,4 +1,4 @@
-> :warning: **IN DEVELOPMENT:** It is not recommended to use this plugin in `PROD` yet as it may have some critical issues
+> :warning: **IN DEVELOPMENT:** You may encounter some issues when using this plugin for production builds
 
 # bun-plugin-stylex
 
