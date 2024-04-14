@@ -38,7 +38,7 @@
     "typescript": "^5.4.3"
   },
   "scripts": {
-    "test": "bun test",
+    "test": "npm run build && bun test",
     "test:watch": "bun test --watch",
     "lint": "eslint \"**/*.{ts,js}\"",
     "lint:fix": "npm run lint --fix",
