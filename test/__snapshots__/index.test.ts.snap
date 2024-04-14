@@ -1,39 +1,46 @@
 // Bun Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`bun-plugin-stylex base 1`] = `BuildArtifact (entry-point) {
-  path: "./index.js",
-  loader: "ts",
-  kind: "entry-point",
-  hash: "41b0b79413c6cbe0",
-  Blob (138 bytes) {
-    type: "text/javascript;charset=utf-8"
-  },
-  sourcemap: null
-}`;
-
-exports[`bun-plugin-stylex base 2`] = `
-"
-@layer priority1, priority2, priority3;
-@layer priority1{
-:root{--xi2jizv:white;--xv2kgq:pink;--x1frcr56:green;}
-@keyframes xekv6nw-B{0%{opacity:0;}100%{opacity:1;}}
-}
-@layer priority2{
-.x1ojj28o{animation:xekv6nw-B}
-}
-@layer priority3{
-.x1c9nyha{background-color:var(--xh8j8l4)}
-.x122mib6{color:var(--x14e1nlr)}
-.x1tqps7z{color:var(--xdmnxmu)}
-}"
-`;
-
 exports[`bun-plugin-stylex should generate css and transpile code 1`] = `
 "// test/__fixtures__/index.ts
+import stylex2 from "@stylexjs/stylex";
+
+// test/__fixtures__/other.ts
+var other_default = {
+  other: {
+    color: "xk76sak",
+    fontSize: "x1k6wstc",
+    $$css: true
+  }
+};
+
+// test/__fixtures__/index.ts
+var styles = {
+  foo: {
+    backgroundColor: "xla0lc4",
+    color: "x1y91jfb",
+    animation: "x1ojj28o",
+    animationComposition: null,
+    animationName: null,
+    animationDuration: null,
+    animationTimingFunction: null,
+    animationDelay: null,
+    animationIterationCount: null,
+    animationDirection: null,
+    animationFillMode: null,
+    animationPlayState: null,
+    animationRange: null,
+    animationRangeEnd: null,
+    animationRangeStart: null,
+    animationTimeline: null,
+    $$css: true
+  },
+  bar: {
+    color: "x1nfrbzd",
+    $$css: true
+  }
+};
 function App() {
-  return {
-    className: "x1c9nyha x1ojj28o x122mib6"
-  };
+  return stylex2.props(other_default.other, styles.foo, styles.bar);
 }
 export {
   App as default
@@ -45,39 +52,81 @@ exports[`bun-plugin-stylex should generate css and transpile code 2`] = `
 "
 @layer priority1, priority2, priority3;
 @layer priority1{
-:root{--xi2jizv:white;--xv2kgq:pink;--x1frcr56:green;}
+:root{--xa4wnex:white;--x1w73h9s:pink;--x1j9lwvd:green;}
 @keyframes xekv6nw-B{0%{opacity:0;}100%{opacity:1;}}
 }
 @layer priority2{
 .x1ojj28o{animation:xekv6nw-B}
 }
 @layer priority3{
-.x1c9nyha{background-color:var(--xh8j8l4)}
-.x122mib6{color:var(--x14e1nlr)}
-.x1tqps7z{color:var(--xdmnxmu)}
+.xla0lc4{background-color:var(--xa4wnex)}
+.x1nfrbzd{color:var(--x1j9lwvd)}
+.x1y91jfb{color:var(--x1w73h9s)}
+.xk76sak{color:var(--xa4wnex)}
+.x1k6wstc{font-size:10px}
 }"
 `;
 
 exports[`bun-plugin-stylex should not generate css for dev mode 1`] = `
 "// test/__fixtures__/index.ts
-import _inject3 from "@stylexjs/stylex/lib/stylex-inject";
+import _inject5 from "@stylexjs/stylex/lib/stylex-inject";
+import stylex2 from "@stylexjs/stylex";
 
 // test/__fixtures__/vars.stylex.ts
 import _inject from "@stylexjs/stylex/lib/stylex-inject";
 var _inject2 = _inject;
-_inject2(":root{--xi2jizv:white;--xv2kgq:pink;--x1frcr56:green;}", 0);
+_inject2(":root{--xa4wnex:white;--x1w73h9s:pink;--x1j9lwvd:green;}", 0);
+
+// test/__fixtures__/other.ts
+import _inject3 from "@stylexjs/stylex/lib/stylex-inject";
+var _inject22 = _inject3;
+_inject22(".xk76sak{color:var(--xa4wnex)}", 3000);
+_inject22(".x1k6wstc{font-size:10px}", 3000);
+var other_default = {
+  other: {
+    other__other: "other__other",
+    color: "xk76sak",
+    fontSize: "x1k6wstc",
+    $$css: true
+  }
+};
 
 // test/__fixtures__/index.ts
-var _inject22 = _inject3;
-_inject22("@keyframes xekv6nw-B{0%{opacity:0;}100%{opacity:1;}}", 1);
-_inject22(".x1c9nyha{background-color:var(--xh8j8l4)}", 3000);
-_inject22(".x1tqps7z{color:var(--xdmnxmu)}", 3000);
-_inject22(".x1ojj28o{animation:xekv6nw-B}", 1000);
-_inject22(".x122mib6{color:var(--x14e1nlr)}", 3000);
+var _inject23 = _inject5;
+_inject23("@keyframes xekv6nw-B{0%{opacity:0;}100%{opacity:1;}}", 1);
+_inject23(".xla0lc4{background-color:var(--xa4wnex)}", 3000);
+_inject23(".x1y91jfb{color:var(--x1w73h9s)}", 3000);
+_inject23(".x1ojj28o{animation:xekv6nw-B}", 1000);
+_inject23(".x1nfrbzd{color:var(--x1j9lwvd)}", 3000);
+var styles = {
+  foo: {
+    "index__styles.foo": "index__styles.foo",
+    backgroundColor: "xla0lc4",
+    color: "x1y91jfb",
+    animation: "x1ojj28o",
+    animationComposition: null,
+    animationName: null,
+    animationDuration: null,
+    animationTimingFunction: null,
+    animationDelay: null,
+    animationIterationCount: null,
+    animationDirection: null,
+    animationFillMode: null,
+    animationPlayState: null,
+    animationRange: null,
+    animationRangeEnd: null,
+    animationRangeStart: null,
+    animationTimeline: null,
+    $$css: true
+  },
+  bar: {
+    "index__styles.bar": "index__styles.bar",
+    color: "x1nfrbzd",
+    $$css: true
+  }
+};
 function App() {
-  return {
-    className: "index__styles.foo x1c9nyha x1ojj28o index__styles.bar x122mib6"
-  };
+  return stylex2.props(other_default.other, styles.foo, styles.bar);
 }
 export {
   App as default

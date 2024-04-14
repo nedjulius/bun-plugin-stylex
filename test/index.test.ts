@@ -1,9 +1,10 @@
 import path from 'node:path';
 import { describe, it, expect } from 'bun:test';
-import createStylexPlugin from '../src';
+import createStylexPlugin from '../dist';
 
 async function build(options: object = {}) {
   const [stylexPlugin, generateCSS] = createStylexPlugin({
+    dev: false,
     useCSSLayers: true,
     ...options,
   });

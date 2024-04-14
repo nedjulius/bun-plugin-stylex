@@ -1,6 +1,6 @@
+import './require-resolve-polyfill';
 import type { BunPlugin, OnLoadArgs, OnLoadResult, PluginBuilder } from 'bun';
 import path from 'node:path';
-import { promises } from 'node:fs';
 import {
   transformAsync,
   type BabelFileMetadata,
@@ -14,8 +14,6 @@ import flowSyntaxPlugin from '@babel/plugin-syntax-flow';
 import hermesParserPlugin from 'babel-plugin-syntax-hermes-parser';
 import typescriptSyntaxPlugin from '@babel/plugin-syntax-typescript';
 import jsxSyntaxPlugin from '@babel/plugin-syntax-jsx';
-
-const { readFile } = promises;
 
 const PACKAGE_NAME = 'bun-plugin-stylex';
 
@@ -39,7 +37,7 @@ type BabelFileMetadataWithStylex = BabelFileMetadata & { stylex: Rule };
 export default function createStylexPlugin({
   dev = IS_DEV_ENV,
   // eslint-disable-next-line
-  unstable_moduleResolution = { type: 'haste' },
+  unstable_moduleResolution = { type: 'commonJS', rootDir: process.cwd() },
   stylexImports = ['@stylexjs/stylex'],
   babelConfig: { plugins = [], presets = [] } = {},
   useCSSLayers = false,
@@ -66,7 +64,7 @@ export default function createStylexPlugin({
         { filter: STYLEX_PLUGIN_ONLOAD_FILTER },
         async (args: OnLoadArgs): Promise<OnLoadResult> => {
           const currFilePath = args.path;
-          const inputCode = await readFile(currFilePath, 'utf8');
+          const inputCode = await Bun.file(currFilePath).text();
 
           if (
             !stylexImports.some((importName) => inputCode.includes(importName))
