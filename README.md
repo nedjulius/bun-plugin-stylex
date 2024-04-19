@@ -1,4 +1,4 @@
-> :warning: **IN DEVELOPMENT:** It is not recommended to use this plugin in `PROD` yet as it may have some critical issues
+> :warning: **IN DEVELOPMENT:** You may encounter some issues when using this plugin for production builds
 
 # bun-plugin-stylex
 
@@ -19,8 +19,6 @@ import createStylexPlugin from 'bun-plugin-stylex';
 const [stylexPlugin, generateCSS] = createStylexPlugin({
   // plugin options
   dev: false,
-  // right now only 'haste' resolution works
-  unstable_moduleResolution: { type: 'haste' },
 });
 
 await Bun.build({
