@@ -34,6 +34,8 @@ if (generatedCSS) {
 }
 ```
 
+[See an example app that uses `bun-plugin-stylex` and React](https://github.com/nedjulius/bun-plugin-stylex-example)
+
 ## Options
 
 #### `stylexImports?: string[]`
