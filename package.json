@@ -1,6 +1,6 @@
 {
   "name": "bun-plugin-stylex",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "nedjulius <hi@nedjulius.xyz>",
   "repository": "nedjulius/bun-plugin-stylex",
   "license": "MIT",
@@ -21,8 +21,8 @@
     "@babel/plugin-syntax-flow": "^7.24.1",
     "@babel/plugin-syntax-jsx": "^7.24.1",
     "@babel/plugin-syntax-typescript": "^7.24.1",
-    "@stylexjs/babel-plugin": "^0.5.1",
-    "@stylexjs/shared": "^0.5.1",
+    "@stylexjs/babel-plugin": "^0.6.1",
+    "@stylexjs/shared": "^0.6.1",
     "babel-plugin-syntax-hermes-parser": "^0.20.1"
   },
   "devDependencies": {
